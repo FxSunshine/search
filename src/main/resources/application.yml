@@ -52,3 +52,8 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: false
+
+#lucene索引文件位置
+lucene:
+  index:
+    path: /Users/xuxiangjian/大数据学习/files/Lucene
