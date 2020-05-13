@@ -43,7 +43,7 @@ public class LuceneService {
      * @throws Exception
      */
     public void createIndex(Map<String,Object> indexMaps) throws Exception {
-
+        //打开存储目录
         Directory dir = luceneConfig.directory();
         //分词器
         Analyzer analyzer = new IKAnalyzer();
