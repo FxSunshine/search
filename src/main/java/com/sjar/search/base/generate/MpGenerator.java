@@ -42,14 +42,14 @@ public class MpGenerator {
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("123456");
-        dsc.setUrl("jdbc:mysql://192.168.51.96:3306/snm_offline?serverTimezone=GMT%2B8");
+        dsc.setUrl("jdbc:mysql://localhost:3306/search?serverTimezone=GMT%2B8");
         mpg.setDataSource(dsc);
 
         //策略配置
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setTablePrefix(new String[]{"b_"});
+        strategy.setTablePrefix(new String[]{"tb_"});
         strategy.setNaming(NamingStrategy.underline_to_camel);
-        strategy.setInclude(new String[]{"b_cover"});
+        strategy.setInclude(new String[]{"tb_law"});
 
         strategy.setSuperServiceClass(null);
         strategy.setSuperServiceImplClass(null);

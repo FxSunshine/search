@@ -6,6 +6,7 @@ import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.StringField;
+import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.*;
 import org.apache.lucene.queryparser.classic.MultiFieldQueryParser;
 import org.apache.lucene.queryparser.classic.QueryParser;
@@ -14,6 +15,7 @@ import org.apache.lucene.store.Directory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.wltea.analyzer.lucene.IKAnalyzer;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ import java.util.Map;
 /**
  * @author xuxiangjian
  */
+@Service
 public class LuceneService {
 
     private static Logger logger = LoggerFactory.getLogger(LuceneService.class);
@@ -55,7 +58,7 @@ public class LuceneService {
         }
         Document doc = new Document();
         indexMaps.forEach((key, value) -> {
-            doc.add(new StringField(key, value.toString(), Field.Store.YES));
+            doc.add(new TextField(key, value.toString(), Field.Store.YES));
         });
         writer.addDocument(doc);
         writer.commit();

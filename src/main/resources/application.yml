@@ -8,10 +8,19 @@ spring:
     encoding: UTF-8
     prefix: claasspath:/templates/
   datasource:
-    url: jdbc:mysql://192.168.51.96:3306/snm_offline?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/search?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    elasticsearch:
+      #cluster-name: #默认为elasticsearch
+      cluster-nodes: 127.0.0.1:9300 #配置es节点信息，逗号分隔，如果没有指定，则启动ClientNode（9200端口是http查询使用的。9300集群使用。这里使用9300.）
+      cluster-name: my-application
+      properties:
+        path:
+          logs: ./elasticsearch/log #elasticsearch日志存储目录
+          data: ./elasticsearch/data #elasticsearch数据存储目录
 server:
   tomcat:
     uri-encoding: UTF-8
@@ -56,4 +65,4 @@ mybatis-plus:
 #lucene索引文件位置
 lucene:
   index:
-    path: /Users/xuxiangjian/大数据学习/files/Lucene
+    path: /Users/xuxiangjian/files/Lucene

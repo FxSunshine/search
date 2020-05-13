@@ -1,6 +1,6 @@
 package com.sjar.search.hdfs;
 
-import com.sjar.search.model.entity.Video;
+//import com.sjar.search.model.entity.Video;
 import org.apache.hadoop.fs.BlockLocation;
 import org.apache.hadoop.fs.FSDataInputStream;
 import org.junit.Test;
@@ -94,14 +94,14 @@ public class TestHdfs {
         reader.close();
     }
 
-    /**
-     * 测试打开HDFS上面的文件，并转化为Java对象
-     */
-    @Test
-    public void testOpenWithObject() throws IOException {
-        Video video = hdfsService.openWithObject("/testDir/b.txt", Video.class);
-        System.out.println(video);
-    }
+//    /**
+////     * 测试打开HDFS上面的文件，并转化为Java对象
+////     */
+////    @Test
+////    public void testOpenWithObject() throws IOException {
+////        Video video = hdfsService.openWithObject("/testDir/b.txt", Video.class);
+////        System.out.println(video);
+////    }
 
     /**
      * 测试重命名
